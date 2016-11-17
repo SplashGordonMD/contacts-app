@@ -1,5 +1,10 @@
- <h1>All Contacts</h1>
+ <h1>Casey's Contacts</h1>
  <% @contacts.each do |contact| %>
-  <h2><%= Name: <% contact.name %></h2>
-  <h3><%= Address: <% contact.address %></h3>
-<%end%>
+  <div>
+    <h2><%= link_to contact.full_name, "/contacts/#{{contact.id}" %></h2>
+    <p>Updated at: <%= contact.friendly_updated_at %></p>
+    <h3>Email: <%= contact.email %></h3>
+    <h3>Phone: <%= contact.japan_phone_number %></h3>  
+  </div>
+<% end %>
+

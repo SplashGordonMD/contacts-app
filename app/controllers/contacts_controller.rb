@@ -1,12 +1,14 @@
-class ContactsController < ApplicationController
-  def index
-    @contacts = Contact.all
-    render "contact.html.erb"
+class Contact < ApplicationRecord
+  
+
+  def friendly_update_at
+    updated_at.strftime("%B %e, %Y")
   end 
   
-  def new
-    render "new.html.erb"
+  def full_name
+    "#{first_name} #{last_name}""
   end
+
 
   def create
     message = Message.new(name: params[:name], address: params[:address])
