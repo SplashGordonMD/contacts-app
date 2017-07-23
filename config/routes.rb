@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get "/" => "contacts#index"
   get "/contacts" => "contacts#index"
   get "/contacts/new" => "contact#new"
   post "/contacts" => "contacts#create"

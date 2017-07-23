@@ -1,19 +1,27 @@
 class Contact < ApplicationRecord
   
-
+ 
   def friendly_update_at
     updated_at.strftime("%B %e, %Y")
   end 
   
   def full_name
-    "#{first_name} #{last_name}""
+    "#{first_name} #{last_name}"
+  end
+  
+  def index
+    @contact = Contact.all
+    render 'index.html.erb'
+   end
+   
+  def new
+    render 'new.html.erb'
   end
 
-
   def create
-    message = Message.new(name: params[:name], address: params[:address])
+    message = Contact.new(name: params[:name], address: params[:address])
     message.save
-    render "create.html.erb"    
+    render "create.html.erb"  
   end
 
   def show
